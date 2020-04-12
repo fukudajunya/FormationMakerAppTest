@@ -1,0 +1,48 @@
+<script>
+  function preventFormSubmit() {
+    var forms = document.querySelectorAll('form');
+      for (var i = 0; i < forms.length; i++) {
+        forms[i].addEventListener('submit', function(event) {
+        event.preventDefault();
+        });
+      }
+        //.gs内のloading()を呼び出し、読み込み後にListBack()でselect要素に選択肢を設定します。
+      google.script.run.withSuccessHandler(ListBack).loading(); 
+    }
+
+    window.addEventListener('load', preventFormSubmit);
+
+    //フォームなのでsubmit後の挙動を書く関数（今回は省略）
+    function handleFormSubmit(formObject) {
+      var div = document.getElementById('output');
+      div.innerHTML = "送信完了";
+    }
+
+    //リスト読み込み
+    function ListBack(data) {
+      //他関数でも読めるようにグローバル変数としてセット
+      listdata = data;
+      var list = document.getElementById('list');
+      for (var i=0; i<data.length; i++){
+        var option = document.createElement('option');
+        option.setAttribute('value', data[i][0]);
+        option.innerHTML = data[i][0];
+        list.appendChild(option);
+      }
+    }
+    
+    // 参加者一覧が配列で取得できたので、それをクライアントに表示させる関数
+    // ToDo: Drag&Drop可能なオブジェクトに入れ込む。
+    function EventParticipant(data){
+       document.getElementById('event-paricipant').innerHTML = data.join('<br>');      
+    }
+    
+    // 「選択完了」ボタンを押下したときのアクション
+    function clickBtn(){
+	  const event = document.getElementById("list").value;
+      // イベント管理シートを読み込んでlistを返す関数を呼び出し、さらに結果をコールバック関数の「EventParticipant」に渡す
+      google.script.run.withSuccessHandler(EventParticipant).showEventParticipant(event);
+
+  	  document.getElementById("span3").textContent = event;
+    }
+</script>
