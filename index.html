@@ -3,7 +3,6 @@
   <head>
     <base target="_top">
     <?!= HtmlService.createHtmlOutputFromFile('css').getContent(); ?>
-
   </head>
   <body>
     <p>イベント名：<span id="span3"></span></p>
@@ -16,6 +15,16 @@
         <input class="selected-event" type="button" value="選択完了" onclick="clickBtn()"/>
     </form>
     <div id="event-paricipant">
+    </div>
+    <p>好きな果物は何ですか？</p>
+    <div id="fruits" ondragover="f_dragover(event)" ondrop="f_drop(event)">
+        <a class="circle" id="apple" alt="りんご" draggable="true" ondragstart="f_dragstart(event)">りんご</a>
+        <a class="circle" id="orange" alt="みかん" draggable="true" ondragstart="f_dragstart(event)">みかん</a>
+        <a class="circle" id="grape" alt="ぶどう" draggable="true" ondragstart="f_dragstart(event)">ぶどう</a>
+    </div>
+
+    <p>こちらのボックスは任意の場所に配置できるようにする。</p>
+    <div id="dropbox" ondragover="f_dragover(event)" ondrop="f_drop(event)">
     </div>
     <?!= HtmlService.createHtmlOutputFromFile('js').getContent(); ?>
   </body>
