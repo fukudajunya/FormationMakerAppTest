@@ -5,7 +5,7 @@
     <?!= HtmlService.createHtmlOutputFromFile('css').getContent(); ?>
   </head>
   <body>
-    <p>イベント名：<span id="span3"></span></p>
+    <p>イベント名：<span id="event-name"></span></p>
     <form id="event">
       <div id="information">
           <select id="list" name="list" onchange="addElement(this);" required><br>
@@ -14,18 +14,18 @@
       </div>
         <input class="selected-event" type="button" value="選択完了" onclick="clickBtn()"/>
     </form>
-    <div id="event-paricipant">
+    <p>踊り子</p>
+    <div class="event-paricipant" id="event-paricipant">
     </div>
-    <p>好きな果物は何ですか？</p>
-    <div id="fruits" ondragover="f_dragover(event)" ondrop="f_drop(event)">
-        <a class="circle" id="apple" alt="りんご" draggable="true" ondragstart="f_dragstart(event)">りんご</a>
-        <a class="circle" id="orange" alt="みかん" draggable="true" ondragstart="f_dragstart(event)">みかん</a>
-        <a class="circle" id="grape" alt="ぶどう" draggable="true" ondragstart="f_dragstart(event)">ぶどう</a>
-    </div>
-
-    <p>こちらのボックスは任意の場所に配置できるようにする。</p>
+    
+    <p>ステージ</p>
     <div id="dropbox" ondragover="f_dragover(event)" ondrop="f_drop(event)">
     </div>
+    
+    <input class="add-dancer" type="button" value="踊り子追加" onclick="addDancer()"/>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <?!= HtmlService.createHtmlOutputFromFile('js').getContent(); ?>
   </body>
 </html>

@@ -26,26 +26,25 @@
     }
     
     // 参加者一覧が配列で取得できたので、それをクライアントに表示させる関数
-    // ToDo: ボタン押下時にaタグをリセットする
     function EventParticipant(data){
        // aタグの初期化を毎回行う
        var participant = document.getElementById('event-paricipant');
        console.log(participant.hasChildNodes());
        while(participant.firstChild){
-         console.log("削除:" + participant.firstChild);
          participant.removeChild(participant.firstChild);
        }
        for(var i=0; i<data.length; i++){
+         // aタグを追加する
          var a = document.createElement("a");
          a.setAttribute('class', 'circle');
          a.id = "participant" + i; 
-         a.draggable = true;
-         a.ondragstart = function(event){
-           event.dataTransfer.setData("text", event.target.id);
-         };
          a.textContent = data[i];
+         a.style.fontSize = '1px';
          var participantBox = participant.appendChild(a);
        }
+       $(function() {
+         $('.circle').draggable();
+       });
     }
     
     // 「選択完了」ボタンを押下したときのアクション
@@ -54,34 +53,14 @@
       // イベント管理シートを読み込んでlistを返す関数を呼び出し、さらに結果をコールバック関数の「EventParticipant」に渡す
       google.script.run.withSuccessHandler(EventParticipant).showEventParticipant(event);
 
-  	  document.getElementById("span3").textContent = event;
+  	  document.getElementById("event-name").textContent = event;
     }
     
-    /***** DnD関数の処理サンプル(これをベースに改造) *****/
-    /***** ドラッグ開始時の処理 *****/
-    function f_dragstart(event) {
-    //ドラッグするデータのid名をDataTransferオブジェクトにセット
-      event.dataTransfer.setData("text", event.target.id);
+    // 踊り子追加ダイアログを表示する
+    function addDancer(){
+      ret = confirm("Googleへ移動します。よろしいですか？");
+      if (ret == true){
+        location.href = "http://www.google.co.jp/";
+      }
     }
-
-    /***** ドラッグ要素がドロップ要素に重なっている間の処理 *****/
-    function f_dragover(event) {
-    //dragoverイベントをキャンセルして、ドロップ先の要素がドロップを受け付けるようにする
-      event.preventDefault();
-    }
-
-    /***** ドロップ時の処理(自動で整列されること) *****/
-    function f_drop(event) {
-    //ドラッグされたデータのid名をDataTransferオブジェクトから取得
-        var id_name = event.dataTransfer.getData("text");
-        //id名からドラッグされた要素を取得
-        var drag_elm = document.getElementById(id_name);
-        //ドロップ先にドラッグされた要素を追加
-        event.currentTarget.appendChild(drag_elm);
-        //エラー回避のため、ドロップ処理の最後にdropイベントをキャンセルしておく
-        event.preventDefault();
-    }
-    
-    /***** ドロップ時の処理(整列されず任意の場所に配置されること) *****/
-    
 </script>
