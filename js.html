@@ -57,10 +57,39 @@
     }
     
     // 踊り子追加ダイアログを表示する
-    function addDancer(){
-      ret = confirm("Googleへ移動します。よろしいですか？");
-      if (ret == true){
-        location.href = "http://www.google.co.jp/";
-      }
-    }
+//    function addDancer(){
+//      ret = confirm("Googleへ移動します。よろしいですか？");
+//      if (ret == true){
+//        location.href = "http://www.google.co.jp/";
+//      }
+//    }
+      /** inputして分岐するパターンを記載
+      $(function(){
+        $('#addDancer').button()
+        .click(function(){
+          $('#add-dancer-dialog').dialog({resizable:false, modal:true,
+            buttons:{
+              "追加": function(){},
+              "キャンセル": function(){
+                $("#dd-dancer-name").val("");
+                $(this).dialog("close");
+              }
+            }
+          });
+        });
+      });
+      **/
+      
+      /** モーダルテスト **/
+      $(function(){
+        $('.login_btn').click(function(){
+          $('#signup_modal').fadeIn();
+        });
+        $('.close_icon').click(function(){
+          $('#signup_modal').fadeOut();
+        });
+        $('.submit_btn').click(function(){
+          $('#signup_modal').fadeOut();
+        });
+      });
 </script>
