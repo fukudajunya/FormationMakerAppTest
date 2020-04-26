@@ -1,4 +1,5 @@
 <style>
+/** 踊り子初期表示 **/
 #event-paricipant {
    width: 500px;
    height: 100px;
@@ -7,17 +8,16 @@
    border: 1px solid #333333;
 }
 
+/** ステージ **/
 #dropbox {
-/*単なるスタイリング*/
    width: 500px;
    height: 250px;
    margin: 20px;
    background-color: #EEEEEE;
    border: 1px solid #333333;
-   /*以下はwebkit系ブラウザでドラッグ＆ドロップを動かすための指定（ブラウザのサポートが進めば、必要なくなると思われます）*/
-   -khtml-user-drag: element;
 }
 
+/** 踊り子 **/
 .circle{
    display: inline-block;
    width: 25px;
@@ -31,6 +31,7 @@
    cursor: pointer;
 }
 
+/** 踊り子追加ボタン **/
 #addDancer {
    max-width: 250px;
    width: 50%;
@@ -43,12 +44,13 @@
    cursor: pointer;  
 }
 
+/** モーダル画面 **/
 #add-dancer-dialog {
    width:400;
    border: 1px solid #333333;
 }
 
-.login_btn{
+.add_dancer_btn{
   background:#eeeeee;
   width: 300px;
   text-align: center;
@@ -58,7 +60,7 @@
   cursor: pointer;
 }
 
- .modal_wrap{
+.modal_wrap{
   position: fixed;
   top:0;
   right:0;

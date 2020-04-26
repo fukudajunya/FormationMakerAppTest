@@ -2,12 +2,8 @@
 function loading() {
     var ss = SpreadsheetApp.openById("1yLVxxzQRWSteAnTBmPrCUCZtWOmTEHXonOIFe0CKKXQ");
     var listss = ss.getSheetByName("イベント");
-    //最終行を調べる
     var lastrow = listss.getLastRow();
-    //1列目最終行までを二次元配列に入れています。
     var list = listss.getRange(2, 1, lastrow-1, 1).getValues();
-
-  　Logger.log(list);
     return list;
 }
 
@@ -18,10 +14,7 @@ function showEventParticipant(event){
   var nicknameSheet = sheet.getSheets()[1];
   var lastRow = ss.getLastRow();
   var nicknameLastRow = nicknameSheet.getLastRow();
-  var date = new Date();
-  var count = lastRow + 2;
   var participant = [];
-  var participantNumber = 0;
   for(var i=1; i<=lastRow+1; i++){
     if(ss.getRange(i,3).getValue() == event){
       for(var j=1; j<=nicknameLastRow+1; j++){
@@ -31,7 +24,6 @@ function showEventParticipant(event){
       }
     }
   }
-  Logger.log(participant);
   return participant;
 }
 

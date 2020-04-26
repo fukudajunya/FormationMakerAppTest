@@ -19,17 +19,17 @@
     </div>
     
     <p>ステージ</p>
-    <div id="dropbox" ondragover="f_dragover(event)" ondrop="f_drop(event)">
+    <div id="dropbox">
     </div>
     
-    <div class="login_btn">踊り子追加</div>
+    <div class="add_dancer_btn">踊り子追加</div>
     <!--モーダル部分-->
-    <div class="modal_wrap" id="signup_modal">
+    <div class="modal_wrap" id="add_dancer_modal">
       <div class="modal_inner">
         <div class="close_icon">
           <i class="far fa-times-circle"></i>
         </div>
-        <div class="signup_form">
+        <div class="add_dancer_form">
           <h2>踊り子追加</h2>
           <form>
             <input type="text" value="" placeholder="踊り子の名前を入力" class="form_control">
@@ -39,15 +39,11 @@
       </div>
     </div>
     
-    <!--
-    <input class="add-dancer" type="button" value="踊り子追加" onclick="addDancer()"/>
-    
-    <button id="addDancer">踊り子追加</button>
-    <div id="add-dancer-dialog" title="踊り子追加" style="display:none;">
-      <label for="add-dancer">踊り子名入力：</label><input id="add-dancer-name" type="text" />
-    </div>
-    -->
-    
+    <!-- 踊り子削除アイコン -->
+    <p>踊り子削除</p>
+    <i class="fas fa-trash fa-3x" id="delete_dancer"></i>
+      
+    <!-- 各種CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous">

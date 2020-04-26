@@ -1,4 +1,5 @@
 <script>
+  /** ドロップリストを表示 **/
   function preventFormSubmit() {
     var forms = document.querySelectorAll('form');
       for (var i = 0; i < forms.length; i++) {
@@ -6,7 +7,6 @@
         event.preventDefault();
         });
       }
-        //.gs内のloading()を呼び出し、読み込み後にListBack()でselect要素に選択肢を設定します。
       google.script.run.withSuccessHandler(ListBack).loading(); 
     }
 
@@ -14,7 +14,6 @@
 
     //リスト読み込み
     function ListBack(data) {
-      //他関数でも読めるようにグローバル変数としてセット
       listdata = data;
       var list = document.getElementById('list');
       for (var i=0; i<data.length; i++){
@@ -25,7 +24,7 @@
       }
     }
     
-    // 参加者一覧が配列で取得できたので、それをクライアントに表示させる関数
+    /** 参加者全員を踊り子枠に表示 **/
     function EventParticipant(data){
        // aタグの初期化を毎回行う
        var participant = document.getElementById('event-paricipant');
@@ -47,7 +46,7 @@
        });
     }
     
-    // 「選択完了」ボタンを押下したときのアクション
+    /** 「選択完了」ボタン押下時に参加者を踊り子枠に格納 **/
     function clickBtn(){
 	  const event = document.getElementById("list").value;
       // イベント管理シートを読み込んでlistを返す関数を呼び出し、さらに結果をコールバック関数の「EventParticipant」に渡す
@@ -56,40 +55,32 @@
   	  document.getElementById("event-name").textContent = event;
     }
     
-    // 踊り子追加ダイアログを表示する
-//    function addDancer(){
-//      ret = confirm("Googleへ移動します。よろしいですか？");
-//      if (ret == true){
-//        location.href = "http://www.google.co.jp/";
-//      }
-//    }
-      /** inputして分岐するパターンを記載
-      $(function(){
-        $('#addDancer').button()
-        .click(function(){
-          $('#add-dancer-dialog').dialog({resizable:false, modal:true,
-            buttons:{
-              "追加": function(){},
-              "キャンセル": function(){
-                $("#dd-dancer-name").val("");
-                $(this).dialog("close");
-              }
-            }
-          });
-        });
+    /** 踊り子追加モーダル **/
+    $(function(){
+      $('.add_dancer_btn').click(function(){
+        $('#add_dancer_modal').fadeIn();
       });
-      **/
-      
-      /** モーダルテスト **/
-      $(function(){
-        $('.login_btn').click(function(){
-          $('#signup_modal').fadeIn();
-        });
-        $('.close_icon').click(function(){
-          $('#signup_modal').fadeOut();
-        });
-        $('.submit_btn').click(function(){
-          $('#signup_modal').fadeOut();
-        });
+      $('.close_icon').click(function(){
+        $('#add_dancer_modal').fadeOut();
       });
+      $('.submit_btn').click(function(){
+        var dancerName = $('.form_control').val();
+        $('#event-paricipant').append('<a class="circle" style="font-size: 1px">' + dancerName + '</a>');
+        $('.circle').draggable();
+        $('#add_dancer_modal').fadeOut();
+      });
+    });
+    
+    /** 踊り子削除 **/
+    $(function(){
+      $('.circle').draggable();
+      $('#delete_dancer').droppable({
+        accept: ".circle",
+        drop: function(event, ui){
+          if(confirm("本当に削除しますか？")){
+            ui.draggable.remove();
+          }
+        }
+      });
+    });
 </script>
