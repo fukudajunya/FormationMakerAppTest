@@ -43,6 +43,19 @@
        }
        $(function() {
          $('.circle').draggable();
+         // ダブルクリック時に踊り子の色を変更する
+         $('.circle').dblclick(function(){
+           var selectedColor = $(this).css('background-color');
+           if(selectedColor == "rgb(135, 206, 235)"){
+             $(this).css('background-color', 'rgb(161, 110, 255)')
+           }else if(selectedColor == "rgb(161, 110, 255)"){
+             $(this).css('background-color', 'rgb(102, 255, 51)')
+           }else if(selectedColor == "rgb(102, 255, 51)"){
+             $(this).css('background-color', 'rgb(255, 54, 127)')
+           }else if(selectedColor == "rgb(255, 54, 127)"){
+             $(this).css('background-color', 'rgb(135, 206, 235)')
+           }
+         });
        });
     }
     
@@ -67,6 +80,19 @@
         var dancerName = $('.form_control').val();
         $('#event-paricipant').append('<a class="circle" style="font-size: 1px">' + dancerName + '</a>');
         $('.circle').draggable();
+        // ダブルクリック時に踊り子の色を変更する
+        $('.circle').dblclick(function(){
+          var selectedColor = $(this).css('background-color');
+          if(selectedColor == "rgb(135, 206, 235)"){
+            $(this).css('background-color', 'rgb(161, 110, 255)')
+          }else if(selectedColor == "rgb(161, 110, 255)"){
+            $(this).css('background-color', 'rgb(102, 255, 51)')
+          }else if(selectedColor == "rgb(102, 255, 51)"){
+            $(this).css('background-color', 'rgb(255, 54, 127)')
+          }else if(selectedColor == "rgb(255, 54, 127)"){
+            $(this).css('background-color', 'rgb(135, 206, 235)')
+          }
+        });
         $('#add_dancer_modal').fadeOut();
       });
     });
@@ -83,4 +109,5 @@
         }
       });
     });
+   });
 </script>

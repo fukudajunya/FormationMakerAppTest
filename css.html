@@ -8,6 +8,22 @@
    border: 1px solid #333333;
 }
 
+/** 右クリックメニュー **/
+#contextmenu {
+   display:none;
+   position:fixed;
+   left:0px;
+   top:0px;
+   width:200px;
+   height:100px;
+   border:1px solid #000;
+   background-color:#fff;
+}
+      
+#contextmenu li {
+   cursor:pointer;
+}
+
 /** ステージ **/
 #dropbox {
    width: 500px;
@@ -15,6 +31,44 @@
    margin: 20px;
    background-color: #EEEEEE;
    border: 1px solid #333333;
+   overflow: auto;
+   resize: both;
+}
+
+/** 踊り子サンプル **/
+.circle_sample_container {
+   width: 120px;
+   height: 30px;
+   background-color: #EEEEEE;
+   border: 1px solid #333333;
+}
+
+.circle_sample{
+   display: inline-block;
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   text-align:center;
+   line-height: 10em;
+   font-size: 1px;
+   text-align: center;
+   line-height: 25px;
+}
+
+#circle_sample_clapper {
+   background: skyblue;
+}
+
+#circle_sample_flag {
+   background: #A16EFF;
+}
+
+#circle_sample_lantern {
+   background: #66FF33;
+}
+
+#circle_sample_mc {
+   background: #FF367F;
 }
 
 /** 踊り子 **/

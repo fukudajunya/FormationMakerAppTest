@@ -14,10 +14,23 @@
       </div>
         <input class="selected-event" type="button" value="選択完了" onclick="clickBtn()"/>
     </form>
+    <!-- サンプルの色を並べる -->
+    <div class="circle_sample_wrapper" id="circle_sample_wrapper">
+      <p>踊り子の色わけ(踊り子はダブルクリックで色が変わります)</p>
+      <div class="circle_sample_container" id="circle_sample_container">
+        <a class="circle_sample" id="circle_sample_clapper">鳴子</a>
+        <a class="circle_sample" id="circle_sample_flag">纏</a>
+        <a class="circle_sample" id="circle_sample_lantern">提灯</a>
+        <a class="circle_sample" id="circle_sample_mc">煽り</a>
+      </div>
+    </div>
+    
+    <!--踊り子表示枠 -->
     <p>踊り子</p>
     <div class="event-paricipant" id="event-paricipant">
     </div>
     
+    <!-- 踊り子配置先 -->
     <p>ステージ</p>
     <div id="dropbox">
     </div>
