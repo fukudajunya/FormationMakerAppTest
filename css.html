@@ -1,4 +1,21 @@
 <style>
+/** ボタン共通化 **/
+.btn-gradient-simple {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: bold;
+  color: #FFF;
+  background-image: linear-gradient(45deg, #709dff 0%, #b0c9ff 100%);
+  transition: .4s;
+}
+
+.btn-gradient-simple:hover {
+  background-image: linear-gradient(45deg, #709dff 50%, #b0c9ff 100%);
+  cursor: pointer;
+}
+
 /** 踊り子初期表示 **/
 #event-paricipant {
    width: 500px;
@@ -102,16 +119,6 @@
 #add-dancer-dialog {
    width:400;
    border: 1px solid #333333;
-}
-
-.add_dancer_btn{
-  background:#eeeeee;
-  width: 300px;
-  text-align: center;
-  margin:0 auto;
-  padding:10px;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
 .modal_wrap{

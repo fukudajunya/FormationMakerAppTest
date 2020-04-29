@@ -70,7 +70,7 @@
     
     /** 踊り子追加モーダル **/
     $(function(){
-      $('.add_dancer_btn').click(function(){
+      $('#add_dancer_btn').click(function(){
         $('#add_dancer_modal').fadeIn();
       });
       $('.close_icon').click(function(){
@@ -103,9 +103,7 @@
       $('#delete_dancer').droppable({
         accept: ".circle",
         drop: function(event, ui){
-          if(confirm("本当に削除しますか？")){
-            ui.draggable.remove();
-          }
+          ui.draggable.remove();
         }
       });
     });
