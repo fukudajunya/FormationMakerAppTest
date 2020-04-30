@@ -33,7 +33,6 @@ function doGet() {
     const htmlOutput = HtmlService.createTemplateFromFile('index').evaluate();
     htmlOutput
       .setTitle('かんしゃら隊列作成')
-      .addMetaTag('viewport', 'width=device-width, initial-scale=1')
     return htmlOutput;
 }
 

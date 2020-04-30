@@ -12,7 +12,7 @@
             <option value=""></option>
           </select>
       </div>
-        <input class="btn-gradient-simple" type="button" value="選択完了" onclick="clickBtn()"/>
+        <input class="btn-gradient-simple" id="event-participant-btn" type="button" value="選択完了" onclick="clickBtn()"/>
     </form>
     <!-- サンプルの色を並べる -->
     <div class="circle_sample_wrapper" id="circle_sample_wrapper">
@@ -31,8 +31,26 @@
     </div>
     
     <!-- 踊り子配置先 -->
-    <p>ステージ</p>
+    <p>ステージ(幅・高さは調節可能)</p>
     <div id="dropbox">
+    </div>
+    
+    <!-- タブステージ -->
+    <div id="tab-test">
+      <ul>
+        <li><a href="#tab1">タブその1</a></li>
+		<li><a href="#tab2">タブその2</a></li>
+		<li><a href="#tab3">タブその3</a></li>
+      </ul>
+      <div id="tab1">
+		タブ1の内容
+      </div>
+      <div id="tab2">
+		タブ2の内容
+	  </div>
+	  <div id="tab3">
+		タブ3の内容
+  	  </div>
     </div>
     
     <div class="btn-gradient-simple" id="add_dancer_btn">踊り子追加</div>
@@ -53,13 +71,17 @@
     </div>
     
     <!-- 踊り子削除アイコン -->
-    <p>踊り子削除</p>
+    <p id="delete_dancer_description">踊り子削除(ドラッグで可能)</p>
     <i class="fas fa-trash fa-3x" id="delete_dancer"></i>
-      
+    
+    <!-- 踊り子位置リセット -->
+    <div class="btn-gradient-simple" id="reset_dancer_btn">リセット</div>
+    
     <!-- 各種CDN -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>    
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <?!= HtmlService.createHtmlOutputFromFile('js').getContent(); ?>

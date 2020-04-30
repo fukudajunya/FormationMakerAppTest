@@ -39,6 +39,7 @@
          a.id = "participant" + i; 
          a.textContent = data[i];
          a.style.fontSize = '1px';
+         a.style.margin = '2px';
          var participantBox = participant.appendChild(a);
        }
        $(function() {
@@ -106,5 +107,17 @@
           ui.draggable.remove();
         }
       });
+    });
+    
+    /** 踊り子位置リセット **/
+    $(function(){
+      $('#reset_dancer_btn').click(function(){
+        $('.circle').css({'top':'0px', 'right':'0px', 'left':'0px', 'bottom':'0px'});
+      });
+    });
+    
+    /** タブ切替 **/
+    $(function(){
+      $('#tab-test').tabs();
     });
 </script>

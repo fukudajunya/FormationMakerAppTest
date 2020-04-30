@@ -1,4 +1,7 @@
 <style>
+p {
+   font-family: serif;
+}
 /** ボタン共通化 **/
 .btn-gradient-simple {
   display: inline-block;
@@ -16,6 +19,12 @@
   cursor: pointer;
 }
 
+/** 踊り子表示ボタン **/
+#event-participant-btn {
+   position: absolute;
+   left: 100px;
+   top: 50px;
+}
 /** 踊り子初期表示 **/
 #event-paricipant {
    width: 500px;
@@ -23,22 +32,6 @@
    margin: 20px;
    background-color: #EEEEEE;
    border: 1px solid #333333;
-}
-
-/** 右クリックメニュー **/
-#contextmenu {
-   display:none;
-   position:fixed;
-   left:0px;
-   top:0px;
-   width:200px;
-   height:100px;
-   border:1px solid #000;
-   background-color:#fff;
-}
-      
-#contextmenu li {
-   cursor:pointer;
 }
 
 /** ステージ **/
@@ -103,16 +96,10 @@
 }
 
 /** 踊り子追加ボタン **/
-#addDancer {
-   max-width: 250px;
-   width: 50%;
-   height: 25px;
-   font-size: 10px;
-   font-weight: bold;
-   color: #fff;
-   background: #000;
-   border: none;
-   cursor: pointer;  
+#add_dancer_btn {
+   position: absolute;
+   right: 450px;
+   top: 80px;
 }
 
 /** モーダル画面 **/
@@ -178,5 +165,31 @@ h2{
   padding:5px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+/** 踊り子削除ボタン **/
+#delete_dancer_description {
+   position: absolute;
+   right: 360px;
+   top: 120px;  
+}
+
+#delete_dancer {
+   position: absolute;
+   right: 520px;
+   top: 170px;  
+}
+
+/** 踊り子位置リセットボタン **/
+#reset_dancer_btn {
+   position: absolute;
+   right: 330px;
+   top: 80px;
+}
+
+/** タブ画面 **/
+#tab-test{
+   width:400px;
+   height: 100px;
 }
 </style>
