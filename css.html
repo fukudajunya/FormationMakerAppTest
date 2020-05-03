@@ -45,6 +45,29 @@ p {
    resize: both;
 }
 
+.stage-wrapper {
+	position: relative;
+	width: 80%;
+	margin: 5px;
+}
+
+.stage-wrapper input[type='text'] {
+    font: 15px/24px serif;
+    box-sizing: border-box;
+    width: 25%;
+    padding: 0.2em;
+    transition: 0.3s;
+    letter-spacing: 1px;
+    border: none;
+    border-bottom: 1px solid #1b2538;
+    background: transparent;
+}
+
+.ef input[type='text']:focus {
+	border-bottom: 1px solid #da3c41;
+	outline: none;
+}
+
 /** 踊り子サンプル **/
 .circle_sample_container {
    width: 120px;
@@ -90,6 +113,7 @@ p {
    background: skyblue;
    text-align:center;
    line-height: 10em;
+   z-index: 1;
 }
 .circle:hover {
    cursor: pointer;
