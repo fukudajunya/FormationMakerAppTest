@@ -116,4 +116,19 @@
         $('.circle').css({'top':'0px', 'right':'0px', 'left':'0px', 'bottom':'0px'});
       });
     });
+    
+    /** ステージ追加 **/
+    $(function(){
+      $('#add_stage_btn').click(function(){
+        var obj = $('#stage-obj').clone(true);
+        $('#stage-obj').after(obj);
+      });
+    });
+    
+    /** ステージ削除 **/
+    $(function(){
+      $('#delete-stage').click(function(){
+        $(this).parent().remove();
+      });
+    });
 </script>
