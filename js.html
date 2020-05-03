@@ -120,8 +120,7 @@
     /** ステージ追加 **/
     $(function(){
       $('#add_stage_btn').click(function(){
-        var obj = $('#stage-obj').clone(true);
-        $('#stage-obj').after(obj);
+        $('#stage-obj').eq(0).clone(true).appendTo('.stage-wrapper');
       });
     });
     
