@@ -116,10 +116,16 @@
       });
     });
     
-    /** ステージ追加 **/
+    /** ステージ追加(DnD,resiza可能) **/
     $(function(){
       $('#add_stage_btn').click(function(){
-        $('#stage-obj').eq(0).clone(true).appendTo('.stage-wrapper');
+        var num = Math.floor( Math.random() * 21 ) ;
+        var id = ($('#stage-obj').eq(0).clone(true).appendTo('.stage-wrapper').attr('id', 'added-stage-' + num)).attr('id');
+        $('#' + id).draggable();
+        var id2 = ($('#' + id).find("div").attr('id', 'added-dropbox-' + num)).attr('id');
+        $('#' + id2).resizable({
+           handles: 'se, ne, sw, nw'
+        });
       });
     });
     
@@ -129,30 +135,4 @@
         $(this).parent().remove();
       });
     });
-    
-    /** ToDo: 踊り子を複数選択してDnDできるようにする **/
-//    $(function(){
-//      $('.event-paricipant, #dropbox').selectable({
-//        selected: function(e, ui) {
-//          $(ui.selected).draggable().draggable('enable');
-//        }
-//      });
-//      $('.circle').draggable({
-//      snap: true,
-//      drag: function(e,ui){
-//        $('.ui-selected').each(function(){
-//          $(this).css({
-//            top: ui.position.top,
-//            left: ui.position.left
-//          });
-//        });
-//      },
-//      stop: function(e,ui) {
-//        $('.ui-selected').each(function(){
-//          $(this).selectable().selectable('destroy');
-//          $(this).draggable().draggable('disable');
-//        });
-//      }
-//    }).draggable('disable');
-//    });
 </script>
