@@ -131,28 +131,28 @@
     });
     
     /** ToDo: 踊り子を複数選択してDnDできるようにする **/
-    $(function(){
-      $('.event-paricipant').selectable({
-        selected: function(e, ui) {
-          $(ui.selected).draggable().draggable('enable');
-        }
-      });
-      $('.circle').draggable({
-      snap: true,
-      drag: function(e,ui){
-        $('.ui-selected').each(function(){
-          $(this).css({
-            top: ui.position.top,
-            left: ui.position.left
-          });
-        });
-      },
-      stop: function(e,ui) {
-        $('.ui-selected').each(function(){
-          $(this).selectable().selectable('destroy');
-          $(this).draggable().draggable('disable');
-        });
-      }
-    }).draggable('disable');
-    });
+//    $(function(){
+//      $('.event-paricipant, #dropbox').selectable({
+//        selected: function(e, ui) {
+//          $(ui.selected).draggable().draggable('enable');
+//        }
+//      });
+//      $('.circle').draggable({
+//      snap: true,
+//      drag: function(e,ui){
+//        $('.ui-selected').each(function(){
+//          $(this).css({
+//            top: ui.position.top,
+//            left: ui.position.left
+//          });
+//        });
+//      },
+//      stop: function(e,ui) {
+//        $('.ui-selected').each(function(){
+//          $(this).selectable().selectable('destroy');
+//          $(this).draggable().draggable('disable');
+//        });
+//      }
+//    }).draggable('disable');
+//    });
 </script>
