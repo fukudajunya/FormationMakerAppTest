@@ -98,6 +98,22 @@
       });
     });
     
+    /** 踊り子位置記録モーダル **/
+    $(function(){
+      $('#save_dancer_position_btn').click(function(){
+        $('#save_dancer_position_modal').fadeIn();
+      });
+      $('.close_icon').click(function(){
+        $('#save_dancer_position_modal').fadeOut();
+      });
+      $('.save_btn').click(function(){
+        $('#save_dancer_position_modal').fadeOut();
+      });
+      $('.show_btn').click(function(){
+        $('#save_dancer_position_modal').fadeOut();
+      });
+    })
+    
     /** 踊り子削除 **/
     $(function(){
       $('.circle').draggable();
