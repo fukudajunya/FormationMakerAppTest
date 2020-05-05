@@ -120,6 +120,12 @@
           console.log($('.circle').eq(i).position());
           console.log("円" + i + ":" + JSON.stringify(circlePosArr[i]));
         }
+        console.log("配列の中身:" + JSON.stringify(circlePosArr))
+        var div = document.createElement('div');
+        var num = Math.floor( Math.random() * 21 ) ;
+        div.id = "circlePosArr" + num; 
+        div.textContent = JSON.stringify(circlePosArr);
+        document.getElementById('save_position_wrapper').appendChild(div);
         $('#save_dancer_position_modal').fadeOut();
       });
       $('.show_btn').click(function(){
