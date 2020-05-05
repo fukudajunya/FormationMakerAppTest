@@ -107,9 +107,25 @@
         $('#save_dancer_position_modal').fadeOut();
       });
       $('.save_btn').click(function(){
+        var elm = $('.save_btn');
+        var i = $('div').index(elm)
+        console.log('保存:' + i);
+        // 踊り子の位置を記録
+        var classNum = $('.circle').length;
+        console.log(classNum);
+        var circlePosArr = [];
+        for(var i=0; i<classNum; i++){
+          //var circlePos = $('.circle').eq(i).position().push();
+          circlePosArr.push($('.circle').eq(i).position());
+          console.log($('.circle').eq(i).position());
+          console.log("円" + i + ":" + JSON.stringify(circlePosArr[i]));
+        }
         $('#save_dancer_position_modal').fadeOut();
       });
       $('.show_btn').click(function(){
+        var elm = $('.show_btn');
+        var i = $('div').index(elm)
+        console.log("表示:" + i);
         $('#save_dancer_position_modal').fadeOut();
       });
     })
@@ -129,6 +145,13 @@
     $(function(){
       $('#reset_dancer_btn').click(function(){
         $('.circle').css({'top':'0px', 'right':'0px', 'left':'0px', 'bottom':'0px'});
+      });
+    });
+    
+    /** 位置記録ボタン追加 **/
+    $(function(){
+      $('#add_save_postion_btn').click(function(){
+        $('#save_dancer_position_btn').eq(0).clone(true).appendTo('.save_position_wrapper');
       });
     });
     
